@@ -34,7 +34,7 @@ class LinkedListInsertion {
         System.out.println("#### State 0");
 
         Node beginningNode = new Node();
-        beginningNode.data = 0;
+        beginningNode.data = 123;
 
         head = insertToBeginning(beginningNode, head);
 
@@ -43,6 +43,18 @@ class LinkedListInsertion {
 
         System.out.println("#### State 1");
 
+        insertAfter(node4, new Node(123));
+        System.out.println("#### State 2");
+        traversalLinkedList(head);
+
+        System.out.println("#### State 2");
+
+        insertEnd(node5, new Node(123));
+        System.out.println("#### State 3");
+        traversalLinkedList(head);
+
+        System.out.println("#### State 3");
+
     }
 
     public static Node insertToBeginning(Node candidate, Node head) {
@@ -50,6 +62,17 @@ class LinkedListInsertion {
         candidate.next = head;
 
         return candidate;
+
+    }
+
+    public static void insertAfter(Node existNode, Node newNode) {
+        newNode.next = existNode.next;
+        existNode.next = newNode;
+
+    }
+
+    public static void insertEnd(Node existNode, Node newNode) {
+        existNode.next = newNode;
 
     }
 
@@ -71,4 +94,16 @@ class LinkedListInsertion {
 class Node {
     int data;
     Node next = null;
+
+    Node() {
+    }
+
+    Node(int data) {
+        this.data = data;
+    }
+
+    Node(int data, Node next) {
+        this.data = data;
+        this.next = next;
+    }
 }
