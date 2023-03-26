@@ -1,6 +1,6 @@
 // link: https://www.youtube.com/watch?v=gKopZSqoVYI&t=349
 
-class LinkedListTraversal {
+class LinkedListInsertion {
     public static void main(String[] args) {
 
         // object createinon start
@@ -27,7 +27,29 @@ class LinkedListTraversal {
 
         // assign head for the LinkedList
         Node head = node1;
+
+        System.out.println("#### State 0");
         traversalLinkedList(head);
+
+        System.out.println("#### State 0");
+
+        Node beginningNode = new Node();
+        beginningNode.data = 0;
+
+        head = insertToBeginning(beginningNode, head);
+
+        System.out.println("#### State 1");
+        traversalLinkedList(head);
+
+        System.out.println("#### State 1");
+
+    }
+
+    public static Node insertToBeginning(Node candidate, Node head) {
+
+        candidate.next = head;
+
+        return candidate;
 
     }
 
