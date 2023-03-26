@@ -1,6 +1,8 @@
-// link:
+import javax.lang.model.SourceVersion;
 
-class LinkedListInsertion {
+// link: https://www.youtube.com/watch?v=gKopZSqoVYI&t=349
+
+class LinkedListDeleteNode {
     public static void main(String[] args) {
 
         // object createinon start
@@ -27,29 +29,24 @@ class LinkedListInsertion {
 
         // assign head for the LinkedList
         Node head = node1;
-
-        System.out.println("#### State 0");
         traversalLinkedList(head);
 
-        System.out.println("#### State 0");
+        // delete node3
+        LLDeleteNode(node3);
 
-        Node beginningNode = new Node();
-        beginningNode.data = 0;
-
-        head = insertToBeginning(beginningNode, head);
-
-        System.out.println("#### State 1");
+        System.out.println("After deletion");
         traversalLinkedList(head);
-
-        System.out.println("#### State 1");
 
     }
 
-    public static Node insertToBeginning(Node candidate, Node head) {
+    public static void LLDeleteNode(Node delete_candidate) {
 
-        candidate.next = head;
+        // node3 olarak adlandirdigimiz zaten pointer, "actual node" degil. yani gelen
+        // inputun degerlerini degistirmek aslinda istenilen veriyi silmek demek oluyor
+        // yani aslinda node 3 u node4 e donusturuyorz
 
-        return candidate;
+        delete_candidate.data = delete_candidate.next.data;
+        delete_candidate.next = delete_candidate.next.next;
 
     }
 
